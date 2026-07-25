@@ -186,4 +186,4 @@ La key se hashea con SHA-256 y se compara contra la lista en `API_KEYS_HASHED`.
 
 ## Endpoints
 
-Ver `docs/API.md` para documentacion completa de cada endpoint.
+Ver `docs/README.md` para documentacion completa de cada endpoint.

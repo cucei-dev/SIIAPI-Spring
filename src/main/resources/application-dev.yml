@@ -1,0 +1,14 @@
+spring:
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: postgres
+
+app:
+  api-keys-hashed: ${API_KEYS_HASHED:test-api-key-hash}

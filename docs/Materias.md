@@ -1,6 +1,6 @@
 ## Materias
 
-### `POST /api/v1/materias`
+### `POST /api/v2/materias`
 
 **Body:**
 
@@ -30,24 +30,24 @@
 }
 ```
 
-### `GET /api/v1/materias`
+### `GET /api/v2/materias`
 
 Lista todas las materias.
 
 **Query params:** `clave`, `search`, `skip`, `limit`
 
-### `GET /api/v1/materias/{id}`
+### `GET /api/v2/materias/{id}`
 
 Obtiene una materia por ID con sus secciones.
 
-### `PUT /api/v1/materias/{id}`
+### `PUT /api/v2/materias/{id}`
 
 Actualiza una materia completa.
 
-### `PATCH /api/v1/materias/{id}`
+### `PATCH /api/v2/materias/{id}`
 
 Actualiza parcialmente una materia.
 
-### `DELETE /api/v1/materias/{id}`
+### `DELETE /api/v2/materias/{id}`
 
 Elimina una materia. **Respuesta 204.**

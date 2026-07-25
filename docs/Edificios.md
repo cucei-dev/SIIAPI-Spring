@@ -1,6 +1,6 @@
 ## Edificios
 
-### `POST /api/v1/edificios`
+### `POST /api/v2/edificios`
 
 **Body:**
 
@@ -32,24 +32,24 @@
 }
 ```
 
-### `GET /api/v1/edificios`
+### `GET /api/v2/edificios`
 
 Lista todos los edificios.
 
 **Query params:** `centroId`, `name`, `search`, `skip`, `limit`
 
-### `GET /api/v1/edificios/{id}`
+### `GET /api/v2/edificios/{id}`
 
 Obtiene un edificio por ID con su centro y aulas.
 
-### `PUT /api/v1/edificios/{id}`
+### `PUT /api/v2/edificios/{id}`
 
 Actualiza un edificio.
 
-### `PATCH /api/v1/edificios/{id}`
+### `PATCH /api/v2/edificios/{id}`
 
 Actualiza parcialmente un edificio.
 
-### `DELETE /api/v1/edificios/{id}`
+### `DELETE /api/v2/edificios/{id}`
 
 Elimina un edificio. **Respuesta 204.**

@@ -4,7 +4,7 @@
 
 ### `GET /api/`
 
-### `GET /api/v1/`
+### `GET /api/v2/`
 
 Retorna informacion de la API.
 

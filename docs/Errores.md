@@ -8,7 +8,7 @@ Los errores siguen el formato RFC 7807 (Problem Details):
   "title": "Not Found",
   "status": 404,
   "detail": "Calendario not found.",
-  "instance": "/api/v1/calendarios/999"
+  "instance": "/api/v2/calendarios/999"
 }
 ```
 

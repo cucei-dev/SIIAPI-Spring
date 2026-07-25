@@ -1,6 +1,6 @@
 ## Aulas
 
-### `POST /api/v1/aulas`
+### `POST /api/v2/aulas`
 
 **Body:**
 
@@ -32,24 +32,24 @@
 }
 ```
 
-### `GET /api/v1/aulas`
+### `GET /api/v2/aulas`
 
 Lista todas las aulas.
 
 **Query params:** `edificioId`, `name`, `search`, `skip`, `limit`
 
-### `GET /api/v1/aulas/{id}`
+### `GET /api/v2/aulas/{id}`
 
 Obtiene un aula por ID con su edificio y clases.
 
-### `PUT /api/v1/aulas/{id}`
+### `PUT /api/v2/aulas/{id}`
 
 Actualiza un aula.
 
-### `PATCH /api/v1/aulas/{id}`
+### `PATCH /api/v2/aulas/{id}`
 
 Actualiza parcialmente un aula.
 
-### `DELETE /api/v1/aulas/{id}`
+### `DELETE /api/v2/aulas/{id}`
 
 Elimina un aula. **Respuesta 204.**

@@ -1,6 +1,6 @@
 ## Centros Universitarios
 
-### `POST /api/v1/centros`
+### `POST /api/v2/centros`
 
 **Body:**
 
@@ -28,24 +28,24 @@
 }
 ```
 
-### `GET /api/v1/centros`
+### `GET /api/v2/centros`
 
 Lista todos los centros.
 
 **Query params:** `search`, `skip`, `limit`
 
-### `GET /api/v1/centros/{id}`
+### `GET /api/v2/centros/{id}`
 
 Obtiene un centro por ID con secciones y edificios.
 
-### `PUT /api/v1/centros/{id}`
+### `PUT /api/v2/centros/{id}`
 
 Actualiza un centro completo.
 
-### `PATCH /api/v1/centros/{id}`
+### `PATCH /api/v2/centros/{id}`
 
 Actualiza parcialmente un centro.
 
-### `DELETE /api/v1/centros/{id}`
+### `DELETE /api/v2/centros/{id}`
 
 Elimina un centro. **Respuesta 204.**

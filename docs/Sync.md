@@ -2,7 +2,7 @@
 
 El endpoint de sincronizacion recibe el estado completo de SIIAU y calcula el diff automaticamente para crear, actualizar o eliminar solo lo que cambio.
 
-### `POST /api/v1/sync?calendarioId={id}&centroId={id}`
+### `POST /api/v2/sync?calendarioId={id}&centroId={id}`
 
 **Query params:**
 

@@ -104,10 +104,10 @@ La API estara disponible en `http://localhost:8080`.
 curl http://localhost:8080/
 
 # Listar centros
-curl http://localhost:8080/api/v1/centros
+curl http://localhost:8080/api/v2/centros
 
 # Crear un centro (requiere API Key)
-curl -X POST http://localhost:8080/api/v1/centros \
+curl -X POST http://localhost:8080/api/v2/centros \
   -H "Content-Type: application/json" \
   -H "X-API-Key: mi-api-key-secreta" \
   -d '{"name": "CUCEI", "siiauId": "CUCEI"}'

@@ -1,6 +1,6 @@
 ## Secciones
 
-### `POST /api/v1/secciones`
+### `POST /api/v2/secciones`
 
 **Body:**
 
@@ -58,24 +58,24 @@
 }
 ```
 
-### `GET /api/v1/secciones`
+### `GET /api/v2/secciones`
 
 Lista todas las secciones.
 
 **Query params:** `nrc`, `centroId`, `materiaId`, `profesorId`, `calendarioId`, `search`, `skip`, `limit`
 
-### `GET /api/v1/secciones/{id}`
+### `GET /api/v2/secciones/{id}`
 
 Obtiene una seccion por ID con todas sus relaciones.
 
-### `PUT /api/v1/secciones/{id}`
+### `PUT /api/v2/secciones/{id}`
 
 Actualiza una seccion completa.
 
-### `PATCH /api/v1/secciones/{id}`
+### `PATCH /api/v2/secciones/{id}`
 
 Actualiza parcialmente una seccion.
 
-### `DELETE /api/v1/secciones/{id}`
+### `DELETE /api/v2/secciones/{id}`
 
 Elimina una seccion. **Respuesta 204.**

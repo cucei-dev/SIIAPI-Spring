@@ -1,6 +1,6 @@
 ## Profesores
 
-### `POST /api/v1/profesores`
+### `POST /api/v2/profesores`
 
 **Body:**
 
@@ -24,24 +24,24 @@
 }
 ```
 
-### `GET /api/v1/profesores`
+### `GET /api/v2/profesores`
 
 Lista todos los profesores.
 
 **Query params:** `name`, `search`, `skip`, `limit`
 
-### `GET /api/v1/profesores/{id}`
+### `GET /api/v2/profesores/{id}`
 
 Obtiene un profesor por ID con sus secciones.
 
-### `PUT /api/v1/profesores/{id}`
+### `PUT /api/v2/profesores/{id}`
 
 Actualiza un profesor.
 
-### `PATCH /api/v1/profesores/{id}`
+### `PATCH /api/v2/profesores/{id}`
 
 Actualiza parcialmente un profesor.
 
-### `DELETE /api/v1/profesores/{id}`
+### `DELETE /api/v2/profesores/{id}`
 
 Elimina un profesor. **Respuesta 204.**

@@ -1,6 +1,6 @@
 ## Clases
 
-### `POST /api/v1/clases`
+### `POST /api/v2/clases`
 
 **Body:**
 
@@ -44,24 +44,24 @@
 }
 ```
 
-### `GET /api/v1/clases`
+### `GET /api/v2/clases`
 
 Lista todas las clases.
 
 **Query params:** `seccionId`, `aulaId`, `skip`, `limit`
 
-### `GET /api/v1/clases/{id}`
+### `GET /api/v2/clases/{id}`
 
 Obtiene una clase por ID.
 
-### `PUT /api/v1/clases/{id}`
+### `PUT /api/v2/clases/{id}`
 
 Actualiza una clase.
 
-### `PATCH /api/v1/clases/{id}`
+### `PATCH /api/v2/clases/{id}`
 
 Actualiza parcialmente una clase.
 
-### `DELETE /api/v1/clases/{id}`
+### `DELETE /api/v2/clases/{id}`
 
 Elimina una clase. **Respuesta 204.**

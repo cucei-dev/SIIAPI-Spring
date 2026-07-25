@@ -1,6 +1,6 @@
 ## Calendarios
 
-### `POST /api/v1/calendarios`
+### `POST /api/v2/calendarios`
 
 Crea un calendario academico.
 
@@ -29,7 +29,7 @@ Crea un calendario academico.
 }
 ```
 
-### `GET /api/v1/calendarios`
+### `GET /api/v2/calendarios`
 
 Lista todos los calendarios.
 
@@ -51,7 +51,7 @@ Lista todos los calendarios.
 }
 ```
 
-### `GET /api/v1/calendarios/{id}`
+### `GET /api/v2/calendarios/{id}`
 
 Obtiene un calendario por ID con sus secciones.
 
@@ -81,18 +81,18 @@ Obtiene un calendario por ID con sus secciones.
 }
 ```
 
-### `PUT /api/v1/calendarios/{id}`
+### `PUT /api/v2/calendarios/{id}`
 
 Actualiza un calendario completo.
 
 **Body:** Mismo que POST.
 
-### `PATCH /api/v1/calendarios/{id}`
+### `PATCH /api/v2/calendarios/{id}`
 
 Actualiza parcialmente un calendario.
 
 **Body:** Solo los campos a actualizar.
 
-### `DELETE /api/v1/calendarios/{id}`
+### `DELETE /api/v2/calendarios/{id}`
 
 Elimina un calendario. **Respuesta 204 sin body.**

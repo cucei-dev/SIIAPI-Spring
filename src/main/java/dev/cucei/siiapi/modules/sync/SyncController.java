@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.*;
  * and performs an intelligent diff to create, update, or delete only what changed.
  */
 @RestController
-@RequestMapping("/api/v1/sync")
+@RequestMapping("/api/v2/sync")
 @RequiredArgsConstructor
 public class SyncController {
 

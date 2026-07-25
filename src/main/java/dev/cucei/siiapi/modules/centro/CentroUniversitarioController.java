@@ -13,7 +13,7 @@ import java.util.List;
  * REST controller for centro universitario CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/centros")
+@RequestMapping("/api/v2/centros")
 @RequiredArgsConstructor
 public class CentroUniversitarioController {
 

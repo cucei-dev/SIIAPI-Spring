@@ -13,7 +13,7 @@ import java.util.List;
  * REST controller for materia CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/materias")
+@RequestMapping("/api/v2/materias")
 @RequiredArgsConstructor
 public class MateriaController {
 

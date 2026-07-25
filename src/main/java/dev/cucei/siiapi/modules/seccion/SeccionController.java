@@ -17,7 +17,7 @@ import java.util.List;
  * REST controller for seccion CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/secciones")
+@RequestMapping("/api/v2/secciones")
 @RequiredArgsConstructor
 public class SeccionController {
 

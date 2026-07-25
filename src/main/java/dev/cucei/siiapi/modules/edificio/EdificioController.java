@@ -14,7 +14,7 @@ import java.util.List;
  * REST controller for edificio CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/edificios")
+@RequestMapping("/api/v2/edificios")
 @RequiredArgsConstructor
 public class EdificioController {
 

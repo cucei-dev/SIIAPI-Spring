@@ -13,7 +13,7 @@ import java.util.List;
  * REST controller for profesor CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/profesores")
+@RequestMapping("/api/v2/profesores")
 @RequiredArgsConstructor
 public class ProfesorController {
 

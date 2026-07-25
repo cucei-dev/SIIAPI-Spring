@@ -15,7 +15,7 @@ import java.util.List;
  * REST controller for calendario CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/calendarios")
+@RequestMapping("/api/v2/calendarios")
 @RequiredArgsConstructor
 public class CalendarioController {
 

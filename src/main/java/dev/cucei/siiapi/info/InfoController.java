@@ -11,7 +11,7 @@ public class InfoController {
 
     private static final String VERSION = "2.0.0";
 
-    @GetMapping({"/", "/api/", "/api/v1/"})
+    @GetMapping({"/", "/api/", "/api/v2/"})
     public InfoResponse getInfo() {
         return new InfoResponse(
             "ok",

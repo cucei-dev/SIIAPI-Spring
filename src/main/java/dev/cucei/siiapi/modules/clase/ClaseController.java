@@ -15,7 +15,7 @@ import java.util.List;
  * REST controller for clase CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/clases")
+@RequestMapping("/api/v2/clases")
 @RequiredArgsConstructor
 public class ClaseController {
 

@@ -14,7 +14,7 @@ import java.util.List;
  * REST controller for aula CRUD operations.
  */
 @RestController
-@RequestMapping("/api/v1/aulas")
+@RequestMapping("/api/v2/aulas")
 @RequiredArgsConstructor
 public class AulaController {
 

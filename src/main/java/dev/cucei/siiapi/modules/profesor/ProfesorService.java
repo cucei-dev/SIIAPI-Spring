@@ -40,7 +40,12 @@ public class ProfesorService {
 
     @Transactional(readOnly = true)
     public List<Profesor> list(String name, String search, int skip, int limit) {
-        var page = repository.findAll(PageRequest.of(skip / limit, limit, Sort.by("id")));
+        int pageNumber = skip / limit;
+        int offset = skip % limit;
+        var page = repository.findAll(PageRequest.of(pageNumber, limit, Sort.by("id")));
+        if (offset > 0 && page.hasContent()) {
+            return page.getContent().subList(offset, page.getContent().size());
+        }
         return page.getContent();
     }
 

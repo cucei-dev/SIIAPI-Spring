@@ -1,14 +1,19 @@
 package dev.cucei.siiapi.config;
 
-import dev.cucei.siiapi.common.exceptions.UnauthorizedException;
+import tools.jackson.databind.ObjectMapper;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ProblemDetail;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -24,23 +29,31 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.net.URI;
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.HexFormat;
 import java.util.List;
 
-/**
- * Security configuration using API key authentication.
- * The API key is verified against a list of SHA-256 hashes stored in the
- * {@code API_KEYS_HASHED} environment variable.
- */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
 
+    private static final Logger log = LoggerFactory.getLogger(SecurityConfig.class);
+    private final ObjectMapper objectMapper = new ObjectMapper();
+
     @Value("${app.api-keys-hashed:}")
     private String apiKeysHashed;
+
+    @jakarta.annotation.PostConstruct
+    public void logConfig() {
+        if (apiKeysHashed == null || apiKeysHashed.isBlank()) {
+            log.warn("API_KEYS_HASHED is EMPTY — all write requests will be rejected");
+        } else {
+            log.info("API keys configured ({} hash(es) loaded)", apiKeysHashed.split(",").length);
+        }
+    }
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -91,12 +104,18 @@ public class SecurityConfig {
                 }
 
                 String apiKey = request.getHeader("X-API-Key");
+                log.debug("API Key filter: method={}, path={}, hasKey={}", method, path, apiKey != null);
+
                 if (apiKey == null || apiKey.isBlank()) {
-                    throw new UnauthorizedException("Missing X-API-Key header");
+                    log.warn("Missing API key for {} {}", method, path);
+                    sendError(response, HttpStatus.UNAUTHORIZED, "Missing X-API-Key header");
+                    return;
                 }
 
                 if (!isValidApiKey(apiKey)) {
-                    throw new UnauthorizedException("Invalid API key");
+                    log.warn("Invalid API key for {} {}", method, path);
+                    sendError(response, HttpStatus.UNAUTHORIZED, "Invalid API key");
+                    return;
                 }
 
                 UsernamePasswordAuthenticationToken auth =
@@ -108,12 +127,23 @@ public class SecurityConfig {
         };
     }
 
+    private void sendError(HttpServletResponse response, HttpStatus status, String message) throws IOException {
+        ProblemDetail problem = ProblemDetail.forStatusAndDetail(status, message);
+        problem.setTitle(status.getReasonPhrase());
+        problem.setType(URI.create("https://api.cucei.dev/errors/" + status.series().name().toLowerCase()));
+        response.setStatus(status.value());
+        response.setContentType(MediaType.APPLICATION_PROBLEM_JSON_VALUE);
+        objectMapper.writeValue(response.getOutputStream(), problem);
+    }
+
     private boolean isValidApiKey(String apiKey) {
         if (apiKeysHashed == null || apiKeysHashed.isBlank()) {
+            log.warn("No API keys configured (app.api-keys-hashed is empty)");
             return false;
         }
 
         String hashed = sha256(apiKey);
+        log.debug("Computed hash: {} (configured hashes: {})", hashed, apiKeysHashed.length() > 16 ? apiKeysHashed.substring(0, 16) + "..." : apiKeysHashed);
         String[] validHashes = apiKeysHashed.split(",");
         for (String validHash : validHashes) {
             if (hashed.equalsIgnoreCase(validHash.trim())) {

@@ -13,7 +13,7 @@ public record SeccionCreate(
     @NotBlank String name,
     @NotBlank String nrc,
     @Min(0) int cupos,
-    @Min(0) int cuposDisponibles,
+    int cuposDisponibles,
     String est,
     LocalDateTime periodoInicio,
     LocalDateTime periodoFin,

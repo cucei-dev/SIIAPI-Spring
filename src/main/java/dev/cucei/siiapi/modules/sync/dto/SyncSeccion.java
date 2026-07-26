@@ -16,7 +16,7 @@ public record SyncSeccion(
     @NotBlank String sec,
     @Min(0) int cr,
     @Min(0) int cup,
-    @Min(0) int dis,
+    int dis,
     String est,
     String profesor,
     String periodo,
